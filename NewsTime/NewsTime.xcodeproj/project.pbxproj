@@ -25,7 +25,7 @@
 		11B1DC10280EDE0A0038B51B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC0F280EDE0A0038B51B /* TableViewCell.swift */; };
 		11B1DC13280EE12C0038B51B /* MediaMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC12280EE12C0038B51B /* MediaMetadata.swift */; };
 		11B1DC15280EE1B90038B51B /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC14280EE1B90038B51B /* Media.swift */; };
-		11B1DC17280EE3DF0038B51B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC16280EE3DF0038B51B /* Article.swift */; };
+		11B1DC19280EE9530038B51B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC18280EE9530038B51B /* Article.swift */; };
 		5F677955BED8FB54CED1FF2F /* Pods_NewsTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE641854E288BDF4CE63ACA9 /* Pods_NewsTime.framework */; };
 		EC272FD96A63377951CB8366 /* Pods_NewsTime_NewsTimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2A4FB2EE3A245637D220B1 /* Pods_NewsTime_NewsTimeUITests.framework */; };
 /* End PBXBuildFile section */
@@ -72,7 +72,7 @@
 		11B1DC0F280EDE0A0038B51B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		11B1DC12280EE12C0038B51B /* MediaMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaMetadata.swift; sourceTree = "<group>"; };
 		11B1DC14280EE1B90038B51B /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
-		11B1DC16280EE3DF0038B51B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		11B1DC18280EE9530038B51B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		46A5BB80F435FB0D98BA9EA6 /* Pods-NewsTime-NewsTimeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsTime-NewsTimeUITests.debug.xcconfig"; path = "Target Support Files/Pods-NewsTime-NewsTimeUITests/Pods-NewsTime-NewsTimeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		551DD166DDA6131B47FB5DCE /* Pods_NewsTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3047D86C2173E1F91CB327 /* Pods-NewsTime-NewsTimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsTime-NewsTimeUITests.release.xcconfig"; path = "Target Support Files/Pods-NewsTime-NewsTimeUITests/Pods-NewsTime-NewsTimeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 			children = (
 				11B1DC12280EE12C0038B51B /* MediaMetadata.swift */,
 				11B1DC14280EE1B90038B51B /* Media.swift */,
-				11B1DC16280EE3DF0038B51B /* Article.swift */,
+				11B1DC18280EE9530038B51B /* Article.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -514,13 +514,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B1DC19280EE9530038B51B /* Article.swift in Sources */,
 				11B1DBC2280EBB7B0038B51B /* NewsTabBarController.swift in Sources */,
 				11B1DBC8280EBB7B0038B51B /* NewsTime.xcdatamodeld in Sources */,
 				11B1DC15280EE1B90038B51B /* Media.swift in Sources */,
 				11B1DC03280ECD500038B51B /* MostViewedViewController.swift in Sources */,
 				11B1DBBE280EBB7B0038B51B /* AppDelegate.swift in Sources */,
 				11B1DC13280EE12C0038B51B /* MediaMetadata.swift in Sources */,
-				11B1DC17280EE3DF0038B51B /* Article.swift in Sources */,
 				11B1DBC0280EBB7B0038B51B /* SceneDelegate.swift in Sources */,
 				11B1DC10280EDE0A0038B51B /* TableViewCell.swift in Sources */,
 				11B1DC00280ECD3B0038B51B /* MostSharedViewController.swift in Sources */,
