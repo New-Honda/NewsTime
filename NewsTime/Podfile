@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'NewsTime' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for NewsTime
+  pod 'SwiftLint'
+  pod 'Alamofire'
+  target 'NewsTimeTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'NewsTimeUITests' do
+    # Pods for testing
+  end
+
+end
