@@ -5,9 +5,7 @@
 //  Created by Oleksandr Sysenko on 19.04.2022.
 //
 
-import Foundation
-
-struct Article: Decodable {
+struct Article: Decodable, Hashable {
     var id: Int
     var url: String
     var section: String

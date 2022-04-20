@@ -5,11 +5,9 @@
 //  Created by Oleksandr Sysenko on 19.04.2022.
 //
 
-import Foundation
-
-struct MediaMetadata: Decodable {
+struct MediaMetadata: Decodable, Hashable {
     var url: String
-    var formate: String
+    var format: String
     var height: Int
     var width: Int
 }
