@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class NewsTableViewCell: UITableViewCell {
     static let identifire = "NewsTableViewCell"
@@ -15,7 +16,7 @@ class NewsTableViewCell: UITableViewCell {
         static let favoriteButtonImageName = "star.fill"
     }
 
-    private var article: Article? {
+    var article: Article? {
         didSet {
             guard let article = article else { return }
             titleLabel.text = article.title
@@ -23,13 +24,20 @@ class NewsTableViewCell: UITableViewCell {
             creationDataLabel.text = article.publishedDate
             byLineLabel.text = article.byLine
 
-            cellImageView.image = UIImage(named: "Logo")
+            guard let mediaUrlString = article.media.last?.medias.last?.url else {
+                cellImageView.image = UIImage(named: "NoImage")
+                return
+            }
+            let url = URL(string: mediaUrlString)
+            mediaRequest = cellImageView.loadImage(from: url)
         }
     }
 
+    private var mediaRequest: DataRequest?
+
     private let cellImageView: UIImageView = {
         let cellImageView = UIImageView(frame: .zero)
-        cellImageView.contentMode = .scaleAspectFill
+        cellImageView.contentMode = .scaleAspectFit
         cellImageView.clipsToBounds = true
         return cellImageView
     }()
@@ -37,14 +45,14 @@ class NewsTableViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = .systemFont(ofSize: 15)
-        titleLabel.numberOfLines = 4
+        titleLabel.numberOfLines = 3
         return titleLabel
     }()
 
     private let descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
         descriptionLabel.font = .systemFont(ofSize: 10)
-        descriptionLabel.numberOfLines = 3
+        descriptionLabel.numberOfLines = 2
         return descriptionLabel
     }()
 
@@ -89,6 +97,12 @@ class NewsTableViewCell: UITableViewCell {
         article = model
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        mediaRequest?.cancel()
+        cellImageView.image = nil
+    }
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -127,15 +141,14 @@ class NewsTableViewCell: UITableViewCell {
 
             titleStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             titleStack.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: 10),
-            titleStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            titleStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
 
-            infoStack.topAnchor.constraint(equalTo: titleStack.bottomAnchor, constant: 10),
             infoStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             infoStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            infoStack.leadingAnchor.constraint(equalTo: favoriteButton.trailingAnchor),
 
             favoriteButton.widthAnchor.constraint(equalToConstant: 25),
             favoriteButton.heightAnchor.constraint(equalToConstant: 25),
-            favoriteButton.topAnchor.constraint(equalTo: titleStack.bottomAnchor, constant: 10),
             favoriteButton.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: 10),
             favoriteButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])

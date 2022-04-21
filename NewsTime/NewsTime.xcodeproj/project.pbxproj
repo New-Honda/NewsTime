@@ -37,6 +37,11 @@
 		11B1DC40281043E20038B51B /* MostViewedDataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC3F281043E20038B51B /* MostViewedDataProviderProtocol.swift */; };
 		11B1DC42281045930038B51B /* MostViewedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC41281045930038B51B /* MostViewedViewModel.swift */; };
 		11B1DC44281046110038B51B /* MostSharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC43281046110038B51B /* MostSharedViewModel.swift */; };
+		11B1DC4628108FCA0038B51B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC4528108FCA0038B51B /* UIImageView+Extension.swift */; };
+		11B1DC492810A08A0038B51B /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC482810A08A0038B51B /* NewsDetailsViewController.swift */; };
+		11B1DC4C2810A0FB0038B51B /* NewsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC4B2810A0FB0038B51B /* NewsDetailsViewModel.swift */; };
+		11B1DC4E2810A1220038B51B /* NewsDetailsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC4D2810A1220038B51B /* NewsDetailsViewModelProtocol.swift */; };
+		11B1DC502810A1430038B51B /* NewsDetailsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1DC4F2810A1430038B51B /* NewsDetailsViewDelegate.swift */; };
 		5F677955BED8FB54CED1FF2F /* Pods_NewsTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE641854E288BDF4CE63ACA9 /* Pods_NewsTime.framework */; };
 		EC272FD96A63377951CB8366 /* Pods_NewsTime_NewsTimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2A4FB2EE3A245637D220B1 /* Pods_NewsTime_NewsTimeUITests.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +100,11 @@
 		11B1DC3F281043E20038B51B /* MostViewedDataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostViewedDataProviderProtocol.swift; sourceTree = "<group>"; };
 		11B1DC41281045930038B51B /* MostViewedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostViewedViewModel.swift; sourceTree = "<group>"; };
 		11B1DC43281046110038B51B /* MostSharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostSharedViewModel.swift; sourceTree = "<group>"; };
+		11B1DC4528108FCA0038B51B /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		11B1DC482810A08A0038B51B /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
+		11B1DC4B2810A0FB0038B51B /* NewsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewModel.swift; sourceTree = "<group>"; };
+		11B1DC4D2810A1220038B51B /* NewsDetailsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewModelProtocol.swift; sourceTree = "<group>"; };
+		11B1DC4F2810A1430038B51B /* NewsDetailsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewDelegate.swift; sourceTree = "<group>"; };
 		46A5BB80F435FB0D98BA9EA6 /* Pods-NewsTime-NewsTimeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsTime-NewsTimeUITests.debug.xcconfig"; path = "Target Support Files/Pods-NewsTime-NewsTimeUITests/Pods-NewsTime-NewsTimeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		551DD166DDA6131B47FB5DCE /* Pods_NewsTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3047D86C2173E1F91CB327 /* Pods-NewsTime-NewsTimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsTime-NewsTimeUITests.release.xcconfig"; path = "Target Support Files/Pods-NewsTime-NewsTimeUITests/Pods-NewsTime-NewsTimeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,6 +201,7 @@
 		11B1DBF1280EC9890038B51B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				11B1DC472810A0430038B51B /* NewsDetailsViewController */,
 				11B1DC0C280EDCDE0038B51B /* NewsViewController */,
 				11B1DBF2280ECA430038B51B /* NewsTabBarController */,
 			);
@@ -230,6 +241,7 @@
 		11B1DC1A280F4C2D0038B51B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				11B1DC4528108FCA0038B51B /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,6 +302,25 @@
 				11B1DC3F281043E20038B51B /* MostViewedDataProviderProtocol.swift */,
 			);
 			path = MostViewedDataProvider;
+			sourceTree = "<group>";
+		};
+		11B1DC472810A0430038B51B /* NewsDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				11B1DC482810A08A0038B51B /* NewsDetailsViewController.swift */,
+				11B1DC4F2810A1430038B51B /* NewsDetailsViewDelegate.swift */,
+				11B1DC4A2810A09D0038B51B /* ViewModels */,
+			);
+			path = NewsDetailsViewController;
+			sourceTree = "<group>";
+		};
+		11B1DC4A2810A09D0038B51B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				11B1DC4B2810A0FB0038B51B /* NewsDetailsViewModel.swift */,
+				11B1DC4D2810A1220038B51B /* NewsDetailsViewModelProtocol.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		3F39072868DE9AF751255EC7 /* Pods */ = {
@@ -573,6 +604,8 @@
 			files = (
 				11B1DC3B281043090038B51B /* MostSharedDataProviderProtocol.swift in Sources */,
 				11B1DC19280EE9530038B51B /* Article.swift in Sources */,
+				11B1DC502810A1430038B51B /* NewsDetailsViewDelegate.swift in Sources */,
+				11B1DC4E2810A1220038B51B /* NewsDetailsViewModelProtocol.swift in Sources */,
 				11B1DC39281042CA0038B51B /* MostSharedDataProvider.swift in Sources */,
 				11B1DC21280F54E00038B51B /* NewsViewModelProtocol.swift in Sources */,
 				11B1DC3628103F300038B51B /* NewsViewDelegate.swift in Sources */,
@@ -581,6 +614,8 @@
 				11B1DC26280FF9640038B51B /* NetworkManager.swift in Sources */,
 				11B1DC15280EE1B90038B51B /* Media.swift in Sources */,
 				11B1DC42281045930038B51B /* MostViewedViewModel.swift in Sources */,
+				11B1DC4628108FCA0038B51B /* UIImageView+Extension.swift in Sources */,
+				11B1DC4C2810A0FB0038B51B /* NewsDetailsViewModel.swift in Sources */,
 				11B1DC44281046110038B51B /* MostSharedViewModel.swift in Sources */,
 				11B1DBBE280EBB7B0038B51B /* AppDelegate.swift in Sources */,
 				11B1DC2E28102EBE0038B51B /* MostEmailedDataProviderProtocol.swift in Sources */,
@@ -590,6 +625,7 @@
 				11B1DC2B28102E5E0038B51B /* MostEmailedDataProvider.swift in Sources */,
 				11B1DC32281037A70038B51B /* DIContainer.swift in Sources */,
 				11B1DC3E281043CD0038B51B /* MostViewedDataProvider.swift in Sources */,
+				11B1DC492810A08A0038B51B /* NewsDetailsViewController.swift in Sources */,
 				11B1DC10280EDE0A0038B51B /* NewsTableViewCell.swift in Sources */,
 				11B1DC34281038ED0038B51B /* MostEmailedViewModel.swift in Sources */,
 				11B1DC2828102D360038B51B /* NetworkManagerProtocol.swift in Sources */,

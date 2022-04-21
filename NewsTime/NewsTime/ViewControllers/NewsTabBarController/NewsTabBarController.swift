@@ -21,7 +21,7 @@ class NewsTabBarController: UITabBarController {
 
         static let favoriteTabBarTag = 3
     }
-    
+
     private let mostViewedViewController: NewsViewController = {
         let mostViewedViewModel = MostViewedViewModel()
         let viewController = NewsViewController(with: mostViewedViewModel)

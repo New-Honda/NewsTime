@@ -16,7 +16,8 @@ class NewsViewController: UIViewController {
         case main
     }
 
-    private lazy var dataSource = UITableViewDiffableDataSource<Section, Article>(tableView: tableView) { tableView, indexPath, itemIdentifier -> UITableViewCell? in
+    private lazy var dataSource = UITableViewDiffableDataSource<Section, Article>(
+        tableView: tableView) { tableView, _, itemIdentifier -> UITableViewCell? in
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.identifire) as? NewsTableViewCell else { return nil }
         cell.setup(with: itemIdentifier)
         return cell
@@ -29,18 +30,18 @@ class NewsViewController: UIViewController {
         setConstraints()
         viewModel.loadNews()
     }
-    
+
     init(with viewModel: NewsViewModelProtocol) {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
         self.viewModel.newsViewDelegate = self
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setSubviews() {
         view.addSubview(tableView)
         setTableView()
@@ -51,8 +52,6 @@ class NewsViewController: UIViewController {
         tableView.dataSource = dataSource
         tableView.separatorStyle = .none
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifire)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 150
         tableView.separatorStyle = .singleLine
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
@@ -68,7 +67,18 @@ class NewsViewController: UIViewController {
     }
 }
 
-extension NewsViewController: UITableViewDelegate { }
+extension NewsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        130
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
+        guard let urlPath = cell.article?.url else { return }
+        let viewController = viewModel.newsDetailsScreen(urlPath: urlPath)
+        present(viewController, animated: true)
+    }
+}
 
 extension NewsViewController: NewsViewDelegate {
     func updateDataSource(with articles: [Article]) {
