@@ -1,11 +1,11 @@
 //
-//  MediaMetadata.swift
+//  MediaMetaDataModel.swift
 //  NewsTime
 //
 //  Created by Oleksandr Sysenko on 19.04.2022.
 //
 
-struct MediaMetadata: Decodable, Hashable {
+struct MediaMetaDataModel: Decodable, Hashable {
     var url: String
     var format: String
     var height: Int

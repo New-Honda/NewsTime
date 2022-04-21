@@ -10,6 +10,7 @@ import UIKit
 protocol NewsViewModelProtocol {
     var newsViewDelegate: NewsViewDelegate? { get set }
     func loadNews()
+    func favoriteButtonHandler(article: ArticleModel)
 }
 
 extension NewsViewModelProtocol {

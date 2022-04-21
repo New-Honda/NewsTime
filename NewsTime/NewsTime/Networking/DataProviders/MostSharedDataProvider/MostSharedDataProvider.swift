@@ -10,7 +10,7 @@ import Alamofire
 final class MostSharedDataProvider: MostSharedDataProviderProtocol {
     private let networkManager: NetworkManagerProtocol = NetworkManager()
 
-    func loadMostSharedNews(completion: @escaping (Result<Content, AFError>) -> Void) {
+    func loadMostSharedNews(completion: @escaping (Result<ContentModel, AFError>) -> Void) {
         let path = networkManager.baseUrl + "/shared/30.json"
 
         guard let url = URL(string: path) else {

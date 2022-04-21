@@ -6,5 +6,5 @@
 //
 
 protocol NewsViewDelegate: AnyObject {
-    func updateDataSource(with articles: [Article])
+    func updateDataSource(with articles: [ArticleModel])
 }

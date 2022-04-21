@@ -10,7 +10,7 @@ import Alamofire
 final class MostEmailedDataProvider: MostEmailedDataProviderProtocol {
     private let networkManager: NetworkManagerProtocol = NetworkManager()
 
-    func loadMostEmailedNews(completion: @escaping (Result<Content, AFError>) -> Void) {
+    func loadMostEmailedNews(completion: @escaping (Result<ContentModel, AFError>) -> Void) {
         let path = networkManager.baseUrl + "/emailed/30.json"
 
         guard let url = URL(string: path) else {

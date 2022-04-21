@@ -1,14 +1,14 @@
 //
-//  Content.swift
+//  ContentModel.swift
 //  NewsTime
 //
 //  Created by Oleksandr Sysenko on 20.04.2022.
 //
 
-struct Content: Decodable {
+struct ContentModel: Decodable {
     var status: String
     var resultCount: Int
-    var results: [Article]
+    var results: [ArticleModel]
 
     enum CodingKeys: String, CodingKey {
         case status

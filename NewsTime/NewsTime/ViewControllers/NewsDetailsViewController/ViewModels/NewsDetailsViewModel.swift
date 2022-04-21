@@ -14,7 +14,7 @@ class NewsDetailsViewModel: NewsDetailsViewModelProtocol {
     init(urlPath: String) {
         self.urlPath = urlPath
     }
-    
+
     func loadPage() {
         guard let url = URL(string: urlPath) else { return }
         let urlRequest = URLRequest(url: url)

@@ -8,5 +8,5 @@
 import Alamofire
 
 protocol MostViewedDataProviderProtocol {
-    func loadMostViewedNews(completion: @escaping (Result<Content, AFError>) -> Void)
+    func loadMostViewedNews(completion: @escaping (Result<ContentModel, AFError>) -> Void)
 }

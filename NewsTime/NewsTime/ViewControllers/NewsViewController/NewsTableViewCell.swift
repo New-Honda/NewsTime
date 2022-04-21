@@ -16,7 +16,7 @@ class NewsTableViewCell: UITableViewCell {
         static let favoriteButtonImageName = "star.fill"
     }
 
-    var article: Article? {
+    private var article: ArticleModel? {
         didSet {
             guard let article = article else { return }
             titleLabel.text = article.title
@@ -31,6 +31,10 @@ class NewsTableViewCell: UITableViewCell {
             let url = URL(string: mediaUrlString)
             mediaRequest = cellImageView.loadImage(from: url)
         }
+    }
+
+    var acrticleUrlPath: String? {
+        article?.url
     }
 
     private var mediaRequest: DataRequest?
@@ -93,8 +97,20 @@ class NewsTableViewCell: UITableViewCell {
         return infoStack
     }()
 
-    func setup(with model: Article) {
+    var favoriteButtonActionCallback: (ArticleModel) -> Void = { _ in }
+
+    func setup(with model: ArticleModel) {
         article = model
+    }
+
+    @objc
+    private func favoriteButtonAction() {
+        guard let article = article else { return }
+        favoriteButtonActionCallback(article)
+    }
+
+    private func setButtonsAction() {
+        favoriteButton.addTarget(self, action: #selector(favoriteButtonAction), for: .touchUpInside)
     }
 
     override func prepareForReuse() {
@@ -108,6 +124,7 @@ class NewsTableViewCell: UITableViewCell {
         selectionStyle = .none
         addSubviews()
         setConstraints()
+        setButtonsAction()
     }
 
     required init?(coder: NSCoder) {

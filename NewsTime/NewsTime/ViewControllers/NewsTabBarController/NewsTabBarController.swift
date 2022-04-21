@@ -47,11 +47,12 @@ class NewsTabBarController: UITabBarController {
         return viewController
     }()
 
-//    private let favoriteViewController: NewsViewController = {
-//        let viewController = NewsViewController()
-//        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: Constants.favoriteTabBarTag)
-//        return viewController
-//    }()
+    private let favoriteViewController: NewsViewController = {
+        let favoritesViewModel = FavoritesViewModel()
+        let viewController = NewsViewController(with: favoritesViewModel)
+        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: Constants.favoriteTabBarTag)
+        return viewController
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,7 @@ class NewsTabBarController: UITabBarController {
         setViewControllers([mostViewedViewController,
                            mostSharedViewController,
                            mostEmailedViewController,
-//                           favoriteViewController
+                           favoriteViewController
                            ], animated: false)
     }
 }

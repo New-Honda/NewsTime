@@ -23,7 +23,8 @@ extension UIImageView {
             DispatchQueue.main.async {
                 complition()
                 self?.layer.opacity = .zero
-                self?.image = UIImage(data: data)
+                guard let image = UIImage(data: data) else { return }
+                self?.image = image
                 UIView.animate(withDuration: Constant.animationDuration) {
                     self?.layer.opacity = Constant.animationOpacity
                 }

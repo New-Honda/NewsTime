@@ -27,4 +27,8 @@ class MostSharedViewModel: NewsViewModelProtocol {
             }
         }
     }
+
+    func favoriteButtonHandler(article: ArticleModel) {
+        CoreDataProvider.shared.setData(article: article)
+    }
 }

@@ -8,5 +8,5 @@
 import Alamofire
 
 protocol MostEmailedDataProviderProtocol {
-    func loadMostEmailedNews(completion: @escaping (Result<Content, AFError>) -> Void)
+    func loadMostEmailedNews(completion: @escaping (Result<ContentModel, AFError>) -> Void)
 }

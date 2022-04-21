@@ -16,10 +16,14 @@ class NewsViewController: UIViewController {
         case main
     }
 
-    private lazy var dataSource = UITableViewDiffableDataSource<Section, Article>(
+    private lazy var dataSource = UITableViewDiffableDataSource<Section, ArticleModel>(
         tableView: tableView) { tableView, _, itemIdentifier -> UITableViewCell? in
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.identifire) as? NewsTableViewCell else { return nil }
         cell.setup(with: itemIdentifier)
+        let callback: (ArticleModel) -> Void = { [weak self] article in
+            self?.viewModel.favoriteButtonHandler(article: article)
+        }
+        cell.favoriteButtonActionCallback = callback
         return cell
     }
 
@@ -74,15 +78,15 @@ extension NewsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
-        guard let urlPath = cell.article?.url else { return }
+        guard let urlPath = cell.acrticleUrlPath else { return }
         let viewController = viewModel.newsDetailsScreen(urlPath: urlPath)
         present(viewController, animated: true)
     }
 }
 
 extension NewsViewController: NewsViewDelegate {
-    func updateDataSource(with articles: [Article]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Article>()
+    func updateDataSource(with articles: [ArticleModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, ArticleModel>()
         snapshot.appendSections([.main])
         snapshot.appendItems(articles, toSection: .main)
         dataSource.apply(snapshot)
