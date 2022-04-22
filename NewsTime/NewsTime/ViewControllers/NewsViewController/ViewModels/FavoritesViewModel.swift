@@ -8,7 +8,7 @@
 import UIKit
 
 class FavoritesViewModel: NewsViewModelProtocol {
-    var newsViewDelegate: NewsViewDelegate?
+    weak var newsViewDelegate: NewsViewDelegate?
 
     func loadNews() {
         let articleModels = CoreDataProvider.shared.getData()
