@@ -12,11 +12,3 @@ protocol NewsViewModelProtocol {
     func loadNews()
     func favoriteButtonHandler(article: ArticleModel)
 }
-
-extension NewsViewModelProtocol {
-    func newsDetailsScreen(urlPath: String) -> UIViewController {
-        let viewModel = NewsDetailsViewModel(urlPath: urlPath)
-        let viewController = NewsDetailsViewController(with: viewModel)
-        return viewController
-    }
-}

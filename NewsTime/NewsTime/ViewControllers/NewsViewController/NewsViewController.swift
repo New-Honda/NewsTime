@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class NewsViewController: UIViewController {
     private var viewModel: NewsViewModelProtocol
@@ -32,6 +33,10 @@ class NewsViewController: UIViewController {
 
         setSubviews()
         setConstraints()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel.loadNews()
     }
 
@@ -78,9 +83,11 @@ extension NewsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
-        guard let urlPath = cell.acrticleUrlPath else { return }
-        let viewController = viewModel.newsDetailsScreen(urlPath: urlPath)
-        present(viewController, animated: true)
+        guard let urlPath = cell.acrticleUrlPath,
+              let url = URL(string: urlPath) else { return }
+
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true)
     }
 }
 

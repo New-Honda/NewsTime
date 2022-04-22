@@ -14,18 +14,6 @@ final class CoreDataProvider {
     // swiftlint:disable force_cast
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-    private var complitions = [() -> Void]()
-
-    private func runComplitions() {
-        complitions.forEach { complition in
-            complition()
-        }
-    }
-
-    func addComplition(_ complition: @escaping () -> Void) {
-        complitions.append(complition)
-    }
-
     func getData() -> [ArticleModel] {
         var articleModels = [ArticleModel]()
         do {
@@ -66,7 +54,6 @@ final class CoreDataProvider {
         }
         do {
             try context.save()
-            runComplitions()
         } catch {
             NSLog("SetData error")
         }

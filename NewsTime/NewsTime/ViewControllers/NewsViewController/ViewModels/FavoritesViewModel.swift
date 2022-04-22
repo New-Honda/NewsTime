@@ -17,14 +17,6 @@ class FavoritesViewModel: NewsViewModelProtocol {
         }
     }
 
-    init() {
-        CoreDataProvider.shared.addComplition { [weak self] in
-            DispatchQueue.main.async {
-                self?.loadNews()
-            }
-        }
-    }
-
     func favoriteButtonHandler(article: ArticleModel) {
         CoreDataProvider.shared.deleteData(article: article)
         loadNews()
