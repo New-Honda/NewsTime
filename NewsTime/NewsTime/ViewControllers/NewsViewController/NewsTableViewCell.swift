@@ -61,9 +61,9 @@ class NewsTableViewCell: UITableViewCell {
     }()
 
     private let favoriteButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         let image = UIImage(systemName: Constants.favoriteButtonImageName)
-        button.setBackgroundImage(image, for: .normal)
+        button.setImage(image, for: .normal)
         return button
     }()
 

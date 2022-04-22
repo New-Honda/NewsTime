@@ -13,6 +13,8 @@ class NewsViewController: UIViewController {
 
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
+    private let spinner = Spinner()
+
     private enum Section {
         case main
     }
@@ -74,7 +76,21 @@ class NewsViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+
+    func errorAlert(message: String) {
+        presentErrorAlert(message: message)
+    }
+
+    func startSpinner() {
+        spinner.showSpinner(onView: view)
+    }
+
+    func stopSpinner() {
+        spinner.removeSpinner()
+    }
 }
+
+// MARK: - UITableViewDelegate
 
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -90,6 +106,8 @@ extension NewsViewController: UITableViewDelegate {
         present(safariViewController, animated: true)
     }
 }
+
+// MARK: - NewsViewDelegate
 
 extension NewsViewController: NewsViewDelegate {
     func updateDataSource(with articles: [ArticleModel]) {

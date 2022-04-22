@@ -7,4 +7,7 @@
 
 protocol NewsViewDelegate: AnyObject {
     func updateDataSource(with articles: [ArticleModel])
+    func startSpinner()
+    func stopSpinner()
+    func errorAlert(message: String)
 }

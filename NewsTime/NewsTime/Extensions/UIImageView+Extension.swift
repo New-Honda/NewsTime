@@ -14,14 +14,13 @@ extension UIImageView {
         static let animationOpacity: Float = 1
     }
 
-    func loadImage(from url: URL?, complition: @escaping () -> Void = {}) -> DataRequest? {
+    func loadImage(from url: URL?) -> DataRequest? {
         guard let url = url else { return nil }
 
         let request = AF.request(url)
         request.responseData { [weak self] response in
             guard let data = response.data else { return }
             DispatchQueue.main.async {
-                complition()
                 self?.layer.opacity = .zero
                 guard let image = UIImage(data: data) else { return }
                 self?.image = image

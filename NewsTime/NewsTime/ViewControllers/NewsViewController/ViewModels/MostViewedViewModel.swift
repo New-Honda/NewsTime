@@ -16,15 +16,17 @@ class MostViewedViewModel: NewsViewModelProtocol {
     }
 
     func loadNews() {
-        mostViewedDataProvider.loadMostViewedNews { result in
+        newsViewDelegate?.startSpinner()
+        mostViewedDataProvider.loadMostViewedNews { [weak self] result in
             switch result {
             case .success(let data):
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async {
                     self?.newsViewDelegate?.updateDataSource(with: data.results)
                 }
             case .failure(let error):
-                print(error)
+                self?.newsViewDelegate?.errorAlert(message: error.localizedDescription)
             }
+            self?.newsViewDelegate?.stopSpinner()
         }
     }
 
